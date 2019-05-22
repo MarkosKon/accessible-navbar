@@ -1,0 +1,15 @@
+{
+  "presets": [["@babel/env", { "modules": false }], "@babel/react"],
+  "env": {
+    "test": {
+      "presets": [["@babel/env"], "@babel/react"]
+    }
+  },
+  "plugins": [
+    [
+      "transform-react-remove-prop-types",
+      { "removeImport": true, "ignoreFilenames": ["node_modules"] }
+    ],
+    ["styled-components", { "pure": true }]
+  ]
+}

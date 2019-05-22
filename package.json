@@ -1,0 +1,91 @@
+{
+  "name": "accessible-navbar",
+  "version": "1.0.0",
+  "description": "An extensible navigation bar with an accessible mobile menu.",
+  "module": "dist/accessible-navbar.esm.js",
+  "main": "dist/accessible-navbar.cjs.js",
+  "scripts": {
+    "build": "rm -rf dist && rollup -c",
+    "prepublish": "yarn lint && yarn build",
+    "lint": "eslint --ext js,jsx src",
+    "lint:fix": "eslint --ext js,jsx --fix src",
+    "test:watch": "react-scripts test --env=jsdom",
+    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": [
+        "lint-staged"
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "yarn test:staged",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "react",
+    "styled-components",
+    "accessible",
+    "navbar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarkosKon/accessible-navbar.git"
+  },
+  "author": "MarkosKon",
+  "license": "MIT",
+  "peerDependencies": {
+    "focus-trap-react": "^6.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-info": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.22",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.0.1",
+    "focus-trap-react": "^6.0.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.17.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^3.0.1",
+    "react-spring": "^8.0.20",
+    "rollup": "^1.1.0",
+    "rollup-plugin-babel": "^4.3.0",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-replace": "^2.1.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-uglify": "^6.0.1",
+    "styled-components": "^4.1.3"
+  },
+  "dependencies": {}
+}
