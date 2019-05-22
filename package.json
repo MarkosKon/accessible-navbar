@@ -6,7 +6,7 @@
   "main": "dist/accessible-navbar.cjs.js",
   "scripts": {
     "build": "rm -rf dist && rollup -c",
-    "prepublish": "yarn lint && yarn build",
+    "prepare": "yarn lint && yarn build",
     "lint": "eslint --ext js,jsx src",
     "lint:fix": "eslint --ext js,jsx --fix src",
     "test:watch": "react-scripts test --env=jsdom",
