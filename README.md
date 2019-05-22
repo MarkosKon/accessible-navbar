@@ -41,7 +41,7 @@ The desktop menu is a `<nav />` and the mobile menu is a modal with a `<nav />` 
 - The focus is trapped inside the mobile menu, when open.
 - When we close the mobile menu the focus returns to the open button.
 - ~~Clicking outside the mobile menu (if it's not full screen) closes the menu.~~
-- When the mobile menu is open we lock the scroll for the app element (the only required prop).
+- When the mobile menu is open we lock the scroll for the html element.
 
 If you feel something is off, please let me know with an issue.
 
