@@ -1,6 +1,6 @@
 {
   "name": "accessible-navbar",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "An extensible navigation bar with an accessible mobile menu.",
   "module": "dist/accessible-navbar.esm.js",
   "main": "dist/accessible-navbar.cjs.js",
