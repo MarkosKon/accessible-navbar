@@ -30,6 +30,17 @@ const Centered = styled.div`
   min-height: 100%;
 `;
 
+const Separator = () => (
+  <hr
+    aria-hidden="true"
+    style={{
+      borderTop: "1px solid lightgray",
+      width: "100%",
+      margin: "16px 0"
+    }}
+  />
+);
+
 const NavbarDecorator = storyFn => (
   <div>
     <GlobalStyle />
@@ -37,19 +48,30 @@ const NavbarDecorator = storyFn => (
   </div>
 );
 
+const MobileListManyLinks = styled(MobileList)`
+  nav {
+    font-size: 42px;
+    a {
+      margin-bottom: 8px;
+    }
+  }
+`;
 const AnimatedDesktopList = animated(DesktopList);
 const AnimatedDesktopListEmpty = animated(DesktopListEmpty);
 const AnimatedMobileList = animated(MobileList);
 const AnimatedMobileListEmpty = animated(MobileListEmpty);
 
-// 1.
-// const FixedWidth = styled(AnimatedMobileList)`
-//   max-width: 320px;
-// `;
-
-// 2.
 const FixedWidth = styled(MobileList)`
   max-width: 320px;
+  padding-top: 100px;
+  nav {
+    text-align: left;
+    font-size: 24px;
+    padding-bottom: 100px;
+    a {
+      margin-bottom: 8px;
+    }
+  }
 `;
 const AnimatedFixedWidth = animated(FixedWidth);
 
@@ -58,14 +80,46 @@ storiesOf("Navbar", module)
   .addDecorator(NavbarDecorator)
   .add("default", () => (
     <div style={{ minHeight: "200vh" }}>
-      <Navbar applicationNodeId="root" c="#a0d4d4" hc="pink">
+      <Navbar applicationNodeId="root" hc="pink">
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
       </Navbar>
     </div>
   ))
-  .add("mobile breakpoint", () => (
+  .add("many links", () => (
+    <div style={{ minHeight: "200vh" }}>
+      <Navbar applicationNodeId="root" hc="pink">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/link1">Our partners</a>
+        <a href="/link2">Social</a>
+        <a href="/link3">News</a>
+        <a href="/link4">FAQ</a>
+        <a href="/link5">Campaigns</a>
+      </Navbar>
+    </div>
+  ))
+  .add("many links prettier mobile", () => (
+    <div style={{ minHeight: "200vh" }}>
+      <Navbar
+        applicationNodeId="root"
+        hc="pink"
+        mobileList={props => <MobileListManyLinks {...props} />}
+      >
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/link1">Our partners</a>
+        <a href="/link2">Social</a>
+        <a href="/link3">News</a>
+        <a href="/link4">FAQ</a>
+        <a href="/link5">Campaigns</a>
+      </Navbar>
+    </div>
+  ))
+  .add("mobile breakpoint on desktop menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -79,7 +133,7 @@ storiesOf("Navbar", module)
       </Navbar>
     </div>
   ))
-  .add("animate DesktopList", () => (
+  .add("animate desktop menu height", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -96,7 +150,7 @@ storiesOf("Navbar", module)
       <Centered>Scroll down</Centered>
     </div>
   ))
-  .add("animate DesktopList #2", () => (
+  .add("animate desktop menu color", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -118,7 +172,13 @@ storiesOf("Navbar", module)
               borderBottom: "1px solid black"
             });
           }
-          return <AnimatedDesktopList style={spring} {...props} />;
+          return (
+            <AnimatedDesktopList
+              style={spring}
+              {...props}
+              c={isAtTop ? "black" : "white"}
+            />
+          );
         }}
       >
         <a href="/">Home</a>
@@ -128,7 +188,7 @@ storiesOf("Navbar", module)
       <Centered>Scroll down</Centered>
     </div>
   ))
-  .add("animate DesktopListEmpty", () => (
+  .add("animate empty desktop menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -150,7 +210,7 @@ storiesOf("Navbar", module)
       </Navbar>
     </div>
   ))
-  .add("fade-in MobileList", () => (
+  .add("fade in mobile menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -180,7 +240,7 @@ storiesOf("Navbar", module)
       </Navbar>
     </div>
   ))
-  .add("slide-down MobileList", () => (
+  .add("slide down mobile menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -210,7 +270,7 @@ storiesOf("Navbar", module)
       </Navbar>
     </div>
   ))
-  .add("slide-left fixed width MobileList", () => (
+  .add("slide left small mobile menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"
@@ -241,7 +301,58 @@ storiesOf("Navbar", module)
       </Navbar>
     </div>
   ))
-  .add("slide-right MobileListEmpty", () => (
+  .add("slide left small mobile menu with many links", () => (
+    <div style={{ minHeight: "200vh", backgroundColor: "#3c519a" }}>
+      <Navbar
+        bc="white"
+        c="black"
+        hc="blue"
+        applicationNodeId="root"
+        desktopList={props => (
+          <DesktopListEmpty {...props}>
+            <Centered>
+              <h1>Brand</h1>
+            </Centered>
+          </DesktopListEmpty>
+        )}
+        mobileList={({ mobileMenuVisible, ...rest }) => {
+          const transitions = useTransition(mobileMenuVisible, null, {
+            from: { transform: "translateX(-320px)" },
+            enter: { transform: "translateX(0)" },
+            leave: { transform: "translateX(-320px)" }
+          });
+          return transitions.map(
+            ({ item, key, props }) =>
+              item && (
+                <AnimatedFixedWidth
+                  {...rest}
+                  key={key}
+                  style={props}
+                  alwaysVisible
+                  mobileMenuVisible={mobileMenuVisible}
+                />
+              )
+          );
+        }}
+      >
+        <a href="/">Home</a>
+        <a href="/about">Who we are</a>
+        <a href="/contact">Vision & Values</a>
+        <Separator />
+        <a href="/contact">Our Leadership</a>
+        <a href="/contact">Engagement Models</a>
+        <a href="/contact">Technology Practices</a>
+        <a href="/contact">Indicative Industries</a>
+        <a href="/contact">Training</a>
+        <Separator />
+        <a href="/contact">Tech Proffesionals</a>
+        <Separator />
+        <a href="/contact">Careers</a>
+        <a href="/contact">Blog</a>
+      </Navbar>
+    </div>
+  ))
+  .add("slide right mobile menu", () => (
     <div style={{ minHeight: "200vh" }}>
       <Navbar
         applicationNodeId="root"

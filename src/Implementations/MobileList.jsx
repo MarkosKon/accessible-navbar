@@ -15,6 +15,8 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  overflow-y: auto;
+  padding: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,8 +29,9 @@ const Container = styled.div`
 const Links = styled.nav`
   display: flex;
   flex-direction: column;
-  font-size: 4rem;
+  font-size: 4em;
   text-align: center;
+  max-height: 100%;
   a {
     color: ${({ c }) => c};
     text-decoration: none;
@@ -38,7 +41,7 @@ const Links = styled.nav`
     color: ${({ hc }) => hc};
   }
   @media screen and (max-width: 576px) {
-    font-size: 3rem;
+    font-size: 3em;
   }
 `;
 const CloseButton = styled(Button)`
@@ -86,7 +89,7 @@ const MobileList = forwardRef(
               onClick={hideMobile}
               aria-label="close mobile menu"
             >
-              <FaTimes c={c} hc={hc} width="2rem" />
+              <FaTimes c={c} hc={hc} width="2em" />
             </CloseButton>
             <Links c={c} hc={hc}>
               {children}

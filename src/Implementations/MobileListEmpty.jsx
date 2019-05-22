@@ -15,6 +15,7 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  overflow-y: auto;
   z-index: 1;
   a,
   button {
@@ -66,7 +67,7 @@ const MobileListEmpty = forwardRef(
               onClick={hideMobile}
               aria-label="close mobile menu"
             >
-              <FaTimes c={c} hc={hc} width="2rem" />
+              <FaTimes c={c} hc={hc} width="2em" />
             </CloseButton>
             {children}
           </Container>
