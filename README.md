@@ -47,7 +47,7 @@ If you feel something is off, please let me know with an issue.
 
 ## Recipes
 
-Take a look at the stories. You can see the correct source code if you click the "story" tab in the addons section at the bottom of the screen. The "show info" button doesn't show the render-prop components correctly.
+Take a look at the [Storybook](https://accessible-navbar.netlify.com/). You can see the correct source code if you click the "story" tab in the addons section at the bottom of the screen. The "show info" button doesn't show the render-prop components correctly.
 
 I want to find a way to test the package locally with yarn link (I have this problem: https://github.com/facebook/react/issues/14257). It's important to setup example projects in order to test it with screen readers like TalkBack. You can't easily do this from storybook. For now I'll just use the published package to setup the examples.
 

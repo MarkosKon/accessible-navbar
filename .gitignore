@@ -2,3 +2,6 @@ dist
 node_modules
 TODO.md
 analyze
+storybook-static
+.netlify
+netlify.toml
