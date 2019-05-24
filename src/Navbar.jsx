@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { useTopEffect } from "./hooks/useTopEffect";
@@ -22,16 +22,25 @@ const Navbar = ({
   const [isAtTop, isAtTopRef] = useTopEffect(topEffect);
   const openButtonRef = useRef();
 
+  useEffect(() => {
+    if (mobileMenuVisible === true) {
+      scrollLock();
+      document
+        .getElementById(applicationNodeId)
+        .setAttribute("aria-hidden", true);
+    } else {
+      const appNode = document.getElementById(applicationNodeId);
+      if (appNode.getAttribute("aria-hidden") === "true") {
+        scrollUnlock();
+        appNode.setAttribute("aria-hidden", false);
+      }
+    }
+  }, [applicationNodeId, mobileMenuVisible]);
+
   return (
     <Fragment>
       {desktopList({
-        showMobile: () => {
-          changeMobileMenuVisibility(true);
-          scrollLock();
-          document
-            .getElementById(applicationNodeId)
-            .setAttribute("aria-hidden", true);
-        },
+        showMobile: () => changeMobileMenuVisibility(true),
         openButtonRef,
         children,
         brand,
@@ -44,10 +53,6 @@ const Navbar = ({
       {mobileList({
         hideMobile: () => {
           changeMobileMenuVisibility(false);
-          scrollUnlock();
-          document
-            .getElementById(applicationNodeId)
-            .setAttribute("aria-hidden", false);
           openButtonRef.current.focus();
         },
         children,
