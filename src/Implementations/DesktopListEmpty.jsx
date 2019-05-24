@@ -13,7 +13,11 @@ const Container = styled.nav`
   height: 100px;
   a,
   button {
-    outline-color: ${({ hc }) => hc};
+    outline: 2px solid transparent;
+  }
+  a:focus,
+  button:focus {
+    box-shadow: 0 0 0 2px ${({ hc }) => hc};
   }
 `;
 const ShowMobileMenuButton = styled(Button)`

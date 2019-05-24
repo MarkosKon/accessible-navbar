@@ -19,7 +19,11 @@ const Container = styled.div`
   z-index: 1;
   a,
   button {
-    outline-color: ${({ hc }) => hc};
+    outline: 2px solid transparent;
+  }
+  a:focus,
+  button:focus {
+    box-shadow: 0 0 0 2px ${({ hc }) => hc};
   }
 `;
 const CloseButton = styled(Button)`
