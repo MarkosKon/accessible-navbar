@@ -1,8 +1,19 @@
+/*!
+ * The svg icons are from Font Awesome:
+ * Font Awesome Free 5.8.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledSVG = styled.svg`
+  display: inline-block;
+  font-size: inherit;
+  height: ${({ height }) => height};
+  width: ${({ width }) => width};
+  overflow: visible;
+  vertical-align: -0.125em;
   path {
     fill: ${({ c }) => c};
     transition: 0.2s ease-in;
@@ -13,17 +24,15 @@ const StyledSVG = styled.svg`
     }
   }
 `;
-const FaBars = ({ c, hc, width }) => (
+const FaBars = ({ c, hc, width, height }) => (
   <StyledSVG
     aria-hidden="true"
-    data-prefix="fas"
-    data-icon="bars"
-    className="svg-inline--fa fa-bars fa-w-14"
+    focusable="false"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 448 512"
     width={width}
-    height={width}
+    height={height}
     c={c}
     hc={hc}
   >
@@ -34,25 +43,25 @@ const FaBars = ({ c, hc, width }) => (
 FaBars.propTypes = {
   c: PropTypes.string,
   hc: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  height: PropTypes.string
 };
 FaBars.defaultProps = {
   c: "#fff",
   hc: "orangered",
-  width: "50px"
+  width: "1.75em",
+  height: "2em"
 };
 
-const FaTimes = ({ c, hc, width }) => (
+const FaTimes = ({ c, hc, width, height }) => (
   <StyledSVG
     aria-hidden="true"
-    data-prefix="fas"
-    data-icon="times"
-    className="svg-inline--fa fa-times fa-w-11"
+    focusable="false"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 352 512"
     width={width}
-    height={width}
+    height={height}
     c={c}
     hc={hc}
   >
@@ -63,12 +72,14 @@ const FaTimes = ({ c, hc, width }) => (
 FaTimes.propTypes = {
   c: PropTypes.string,
   hc: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  height: PropTypes.string
 };
 FaTimes.defaultProps = {
   c: "#fff",
   hc: "orangered",
-  width: "50px"
+  width: "1.375em",
+  height: "2em"
 };
 
 export { FaBars, FaTimes };

@@ -82,7 +82,7 @@ const DesktopList = forwardRef(
             mobileBreakpoint={mobileBreakpoint}
             aria-label="open mobile menu"
           >
-            <FaBars c={c} hc={hc} width="2rem" />
+            <FaBars c={c} hc={hc} />
           </ShowMobileMenuButton>
         </Right>
       </Container>

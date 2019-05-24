@@ -67,7 +67,7 @@ const MobileListEmpty = forwardRef(
               onClick={hideMobile}
               aria-label="close mobile menu"
             >
-              <FaTimes c={c} hc={hc} width="2em" />
+              <FaTimes c={c} hc={hc} />
             </CloseButton>
             {children}
           </Container>
