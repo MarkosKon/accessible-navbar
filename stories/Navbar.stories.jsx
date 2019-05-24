@@ -34,6 +34,15 @@ const Centered = styled.div`
   min-height: 100%;
 `;
 
+const Brand = () => (
+  <a
+    href="/"
+    style={{ fontSize: "32px", textDecoration: "none", color: "inherit" }}
+  >
+    Brand
+  </a>
+);
+
 const Separator = () => (
   <hr
     aria-hidden="true"
@@ -81,7 +90,16 @@ storiesOf("Navbar", module)
   .addDecorator(NavbarDecorator)
   .add("default", () => (
     <div style={{ minHeight: "200vh" }}>
-      <Navbar applicationNodeId="root" hc="pink">
+      <Navbar applicationNodeId="root">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </Navbar>
+    </div>
+  ))
+  .add("brand", () => (
+    <div style={{ minHeight: "200vh" }}>
+      <Navbar applicationNodeId="root" brand={<Brand />} hc="pink">
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
@@ -321,7 +339,7 @@ storiesOf("Navbar", module)
         desktopList={props => (
           <DesktopListEmpty {...props}>
             <Centered>
-              <h1>Brand</h1>
+              <Brand />
             </Centered>
           </DesktopListEmpty>
         )}

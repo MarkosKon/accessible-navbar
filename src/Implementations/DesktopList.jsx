@@ -24,7 +24,7 @@ const Container = styled.nav`
     box-shadow: 0 0 0 2px ${({ hc }) => hc};
   }
   @media screen and (max-width: 600px) {
-    padding: 0 0 0 20px;
+    padding: 0 26px;
   }
 `;
 const Right = styled.div`
