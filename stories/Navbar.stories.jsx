@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
   }
+
+  a{
+    padding: 8px 16px;
+  }
 `;
 
 const Centered = styled.div`
@@ -68,9 +72,6 @@ const FixedWidth = styled(MobileList)`
     text-align: left;
     font-size: 24px;
     padding-bottom: 100px;
-    a {
-      margin-bottom: 8px;
-    }
   }
 `;
 const AnimatedFixedWidth = animated(FixedWidth);
@@ -89,7 +90,13 @@ storiesOf("Navbar", module)
   ))
   .add("many links", () => (
     <div style={{ minHeight: "200vh" }}>
-      <Navbar applicationNodeId="root" hc="pink">
+      <Navbar
+        applicationNodeId="root"
+        hc="pink"
+        desktopList={props => (
+          <DesktopList {...props} mobileBreakpoint={1350} />
+        )}
+      >
         <a href="/">Home</a>
         <a href="/about">About</a>
         <a href="/contact">Contact</a>
@@ -106,6 +113,9 @@ storiesOf("Navbar", module)
       <Navbar
         applicationNodeId="root"
         hc="pink"
+        desktopList={props => (
+          <DesktopList {...props} mobileBreakpoint={1350} />
+        )}
         mobileList={props => <MobileListManyLinks {...props} />}
       >
         <a href="/">Home</a>
