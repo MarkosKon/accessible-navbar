@@ -2,6 +2,8 @@
 
 > An extensible navigation bar with an accessible mobile menu.
 
+[Storybook examples](https://accessible-navbar.netlify.com/)
+
 ## Install
 
 ```bash
@@ -29,6 +31,14 @@ const Example = () => (
 );
 ```
 
+## Recipes
+
+Take a look at the [Storybook](https://accessible-navbar.netlify.com/).
+
+If you want to **test** the navbar with a screen reader or see the "The escape key closes the mobile menu" in action you'll have to press the **"Open canvas in a new tab" button** at the top right of your Storybook screen.
+
+You can see the **correct source code** if you click the **"story" tab in the addons section** at the bottom of the screen. The "show info" button doesn't show the render-prop components correctly.
+
 ## Accessibility ticks
 
 The desktop menu is a `<nav />` and the mobile menu is a modal with a `<nav />` inside.
@@ -44,14 +54,6 @@ The desktop menu is a `<nav />` and the mobile menu is a modal with a `<nav />` 
 - When the mobile menu is open we lock the scroll for the html element.
 
 If you feel something is off, please let me know with an issue.
-
-## Recipes
-
-Take a look at the [Storybook](https://accessible-navbar.netlify.com/).
-
-If you want to **test** the navbar with a screen reader or see the "The escape key closes the mobile menu" in action you'll have to press the **"Open canvas in a new tab" button** at the top right of your Storybook screen.
-
-You can see the **correct source code** if you click the **"story" tab in the addons section** at the bottom of the screen. The "show info" button doesn't show the render-prop components correctly.
 
 ## Available components
 
