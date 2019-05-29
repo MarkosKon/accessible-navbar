@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { useTopEffect } from "./hooks/useTopEffect";
@@ -19,8 +19,10 @@ const Navbar = ({
   hc
 }) => {
   const [mobileMenuVisible, changeMobileMenuVisibility] = useState(false);
+  const showMobile = () => changeMobileMenuVisibility(true);
+  const hideMobile = () => changeMobileMenuVisibility(false);
+
   const [isAtTop, isAtTopRef] = useTopEffect(topEffect);
-  const openButtonRef = useRef();
 
   useEffect(() => {
     if (mobileMenuVisible === true) {
@@ -40,8 +42,7 @@ const Navbar = ({
   return (
     <Fragment>
       {desktopList({
-        showMobile: () => changeMobileMenuVisibility(true),
-        openButtonRef,
+        showMobile,
         children,
         brand,
         isAtTop,
@@ -51,10 +52,7 @@ const Navbar = ({
         hc
       })}
       {mobileList({
-        hideMobile: () => {
-          changeMobileMenuVisibility(false);
-          openButtonRef.current.focus();
-        },
+        hideMobile,
         children,
         mobileMenuVisible,
         c,

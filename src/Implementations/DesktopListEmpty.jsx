@@ -30,7 +30,6 @@ const DesktopListEmpty = forwardRef(
   (
     {
       showMobile,
-      openButtonRef,
       isAtTopRef,
       mobileBreakpoint,
       children,
@@ -46,7 +45,6 @@ const DesktopListEmpty = forwardRef(
       <Container bc={bc} c={c} hc={hc} className={className} ref={ref}>
         {children}
         <ShowMobileMenuButton
-          ref={openButtonRef}
           onClick={showMobile}
           mobileBreakpoint={mobileBreakpoint}
           aria-label="open mobile menu"
@@ -60,9 +58,6 @@ const DesktopListEmpty = forwardRef(
 
 DesktopListEmpty.propTypes = {
   showMobile: PropTypes.func,
-  openButtonRef: PropTypes.PropTypes.shape({
-    current: PropTypes.object
-  }),
   isAtTopRef: PropTypes.shape({
     current: PropTypes.object
   }).isRequired,
@@ -75,7 +70,6 @@ DesktopListEmpty.propTypes = {
 };
 DesktopListEmpty.defaultProps = {
   showMobile: null,
-  openButtonRef: { current: { focus: () => {} } },
   mobileBreakpoint: 980,
   children: null,
   c: "#FFF",

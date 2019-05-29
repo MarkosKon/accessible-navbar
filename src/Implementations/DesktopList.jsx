@@ -60,7 +60,6 @@ const DesktopList = forwardRef(
   (
     {
       showMobile,
-      openButtonRef,
       children,
       brand,
       isAtTopRef,
@@ -81,7 +80,6 @@ const DesktopList = forwardRef(
             {children}
           </DesktopLinks>
           <ShowMobileMenuButton
-            ref={openButtonRef}
             onClick={showMobile}
             mobileBreakpoint={mobileBreakpoint}
             aria-label="open mobile menu"
@@ -95,9 +93,6 @@ const DesktopList = forwardRef(
 );
 DesktopList.propTypes = {
   showMobile: PropTypes.func,
-  openButtonRef: PropTypes.PropTypes.shape({
-    current: PropTypes.object
-  }),
   children: PropTypes.PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.arrayOf(PropTypes.element)
@@ -114,7 +109,6 @@ DesktopList.propTypes = {
 };
 DesktopList.defaultProps = {
   showMobile: null,
-  openButtonRef: { current: { focus: () => {} } },
   brand: null,
   mobileBreakpoint: 980,
   c: "#FFF",

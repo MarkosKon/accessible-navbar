@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useEffect } from "react";
+import React, { forwardRef } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -67,16 +67,13 @@ const MobileList = forwardRef(
     },
     ref
   ) => {
-    const closeButtonRef = useRef();
-    useEffect(() => {
-      if (mobileMenuVisible) {
-        closeButtonRef.current.focus();
-      }
-    }, [mobileMenuVisible]);
     return (
       (alwaysVisible || mobileMenuVisible) &&
       createPortal(
-        <FocusTrap>
+        <FocusTrap
+          focusTrapOptions={{ returnFocusOnDeactivate: true }}
+          active={mobileMenuVisible}
+        >
           <Container
             bc={bc}
             c={c}
@@ -88,11 +85,7 @@ const MobileList = forwardRef(
             tabIndex="-1"
             onKeyDown={({ keyCode }) => keyCode === 27 && hideMobile()}
           >
-            <CloseButton
-              ref={closeButtonRef}
-              onClick={hideMobile}
-              aria-label="close mobile menu"
-            >
+            <CloseButton onClick={hideMobile} aria-label="close mobile menu">
               <FaTimes c={c} hc={hc} />
             </CloseButton>
             <Links c={c} hc={hc}>
