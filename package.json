@@ -75,6 +75,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-is": "^18.1.0",
+    "react-spring": "^8",
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-commonjs": "^10.0.0",
