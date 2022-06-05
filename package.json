@@ -12,6 +12,9 @@
     "storybook": "start-storybook -p 9000 -h 0.0.0.0",
     "build-storybook": "build-storybook"
   },
+  "files": [
+    "dist"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": [
