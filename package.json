@@ -41,11 +41,11 @@
   "author": "MarkosKon",
   "license": "MIT",
   "peerDependencies": {
-    "focus-trap-react": "^6.0.0",
+    "focus-trap-react": "^6.0.0 | ^7 | ^8",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "styled-components": "^4.0.3"
+    "react": "^16.8.6 | ^17 | ^18",
+    "react-dom": "^16.8.6 | ^17 | ^18",
+    "styled-components": "^4.0.3 | ^5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
