@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  node:
+    image: node:16.14.0-alpine3.15
+    user: node:node
+    working_dir: /node/accessible-navbar
+    volumes:
+      - ./:/node/accessible-navbar
+    # environment:
+      # - INTERNAL_STATUS_PORT=33000
+    ports:
+      - 9000:9000
+    command: tail -F anything

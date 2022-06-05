@@ -9,7 +9,7 @@
     "prepare": "yarn lint && yarn build",
     "lint": "eslint --ext js,jsx src",
     "lint:fix": "eslint --ext js,jsx --fix src",
-    "storybook": "start-storybook -p 9009",
+    "storybook": "start-storybook -p 9000 -h 0.0.0.0",
     "build-storybook": "build-storybook"
   },
   "husky": {
