@@ -9,8 +9,6 @@
     "prepare": "yarn lint && yarn build",
     "lint": "eslint --ext js,jsx src",
     "lint:fix": "eslint --ext js,jsx --fix src",
-    "test:watch": "react-scripts test --env=jsdom",
-    "test:staged": "cross-env CI=true react-scripts test --env=jsdom --findRelatedTests",
     "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook"
   },
@@ -24,7 +22,6 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
-      "yarn test:staged",
       "git add"
     ]
   },
@@ -77,7 +74,6 @@
     "prettier": "^1.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.0.1",
     "react-spring": "^8.0.20",
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",
