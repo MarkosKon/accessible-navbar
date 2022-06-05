@@ -59,6 +59,7 @@ const DesktopListEmpty = forwardRef(
 DesktopListEmpty.propTypes = {
   showMobile: PropTypes.func,
   isAtTopRef: PropTypes.shape({
+    // eslint-disable-next-line react/forbid-prop-types
     current: PropTypes.object
   }).isRequired,
   mobileBreakpoint: PropTypes.number,
