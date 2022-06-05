@@ -36,11 +36,11 @@ const DesktopListEmpty = forwardRef(
       c,
       bc,
       hc,
-      className
+      className,
     },
     ref
   ) => (
-    <Fragment>
+    <>
       <div ref={isAtTopRef} aria-hidden="true" />
       <Container bc={bc} c={c} hc={hc} className={className} ref={ref}>
         {children}
@@ -52,7 +52,7 @@ const DesktopListEmpty = forwardRef(
           <FaBars c={c} hc={hc} />
         </ShowMobileMenuButton>
       </Container>
-    </Fragment>
+    </>
   )
 );
 
@@ -60,14 +60,14 @@ DesktopListEmpty.propTypes = {
   showMobile: PropTypes.func,
   isAtTopRef: PropTypes.shape({
     // eslint-disable-next-line react/forbid-prop-types
-    current: PropTypes.object
+    current: PropTypes.object,
   }).isRequired,
   mobileBreakpoint: PropTypes.number,
   children: PropTypes.node,
   c: PropTypes.string,
   bc: PropTypes.string,
   hc: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 DesktopListEmpty.defaultProps = {
   showMobile: null,
@@ -76,7 +76,7 @@ DesktopListEmpty.defaultProps = {
   c: "#FFF",
   bc: "#1D1D1D",
   hc: "orangered",
-  className: null
+  className: null,
 };
 
 export default DesktopListEmpty;

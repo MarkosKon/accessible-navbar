@@ -67,11 +67,11 @@ const DesktopList = forwardRef(
       c,
       bc,
       hc,
-      className
+      className,
     },
     ref
   ) => (
-    <Fragment>
+    <>
       <div ref={isAtTopRef} aria-hidden="true" />
       <Container bc={bc} c={c} hc={hc} className={className} ref={ref}>
         {brand}
@@ -88,25 +88,25 @@ const DesktopList = forwardRef(
           </ShowMobileMenuButton>
         </Right>
       </Container>
-    </Fragment>
+    </>
   )
 );
 DesktopList.propTypes = {
   showMobile: PropTypes.func,
   children: PropTypes.PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
   brand: PropTypes.element,
   isAtTopRef: PropTypes.shape({
     // eslint-disable-next-line react/forbid-prop-types
-    current: PropTypes.object
+    current: PropTypes.object,
   }).isRequired,
   mobileBreakpoint: PropTypes.number,
   c: PropTypes.string,
   bc: PropTypes.string,
   hc: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 DesktopList.defaultProps = {
   showMobile: null,
@@ -115,7 +115,7 @@ DesktopList.defaultProps = {
   c: "#FFF",
   bc: "#1D1D1D",
   hc: "orangered",
-  className: null
+  className: null,
 };
 
 export default DesktopList;

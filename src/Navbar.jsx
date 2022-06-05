@@ -16,7 +16,7 @@ const Navbar = ({
   applicationNodeId,
   c,
   bc,
-  hc
+  hc,
 }) => {
   const [mobileMenuVisible, changeMobileMenuVisibility] = useState(false);
   const showMobile = () => changeMobileMenuVisibility(true);
@@ -40,7 +40,7 @@ const Navbar = ({
   }, [applicationNodeId, mobileMenuVisible]);
 
   return (
-    <Fragment>
+    <>
       {desktopList({
         showMobile,
         children,
@@ -49,7 +49,7 @@ const Navbar = ({
         isAtTopRef,
         c,
         bc,
-        hc
+        hc,
       })}
       {mobileList({
         hideMobile,
@@ -57,9 +57,9 @@ const Navbar = ({
         mobileMenuVisible,
         c,
         bc,
-        hc
+        hc,
       })}
-    </Fragment>
+    </>
   );
 };
 Navbar.propTypes = {
@@ -69,22 +69,22 @@ Navbar.propTypes = {
   topEffect: PropTypes.bool,
   children: PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.arrayOf(PropTypes.element),
   ]),
   applicationNodeId: PropTypes.string.isRequired,
   c: PropTypes.string,
   bc: PropTypes.string,
-  hc: PropTypes.string
+  hc: PropTypes.string,
 };
 Navbar.defaultProps = {
-  desktopList: props => <DesktopList {...props} />,
-  mobileList: props => <MobileList {...props} />,
+  desktopList: (props) => <DesktopList {...props} />,
+  mobileList: (props) => <MobileList {...props} />,
   brand: null,
   topEffect: false,
   children: null,
   c: "white",
   bc: "#1d1d1d",
-  hc: "orange"
+  hc: "orange",
 };
 
 export default Navbar;

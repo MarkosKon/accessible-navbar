@@ -44,13 +44,13 @@ FaBars.propTypes = {
   c: PropTypes.string,
   hc: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
 };
 FaBars.defaultProps = {
   c: "#fff",
   hc: "orangered",
   width: "1.75em",
-  height: "2em"
+  height: "2em",
 };
 
 const FaTimes = ({ c, hc, width, height }) => (
@@ -73,13 +73,13 @@ FaTimes.propTypes = {
   c: PropTypes.string,
   hc: PropTypes.string,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
 };
 FaTimes.defaultProps = {
   c: "#fff",
   hc: "orangered",
   width: "1.375em",
-  height: "2em"
+  height: "2em",
 };
 
 export { FaBars, FaTimes };

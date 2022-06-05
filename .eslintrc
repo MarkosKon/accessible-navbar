@@ -18,7 +18,7 @@
   },
   "plugins": ["react", "react-hooks"],
   "rules": {
-    "strict": 0,
+    "react/jsx-props-no-spreading": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": 0,
@@ -26,6 +26,13 @@
       "error",
       {
         "devDependencies": [".storybook/**", "stories/**"]
+      }
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
       }
     ]
   }

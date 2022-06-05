@@ -63,7 +63,7 @@ const MobileList = forwardRef(
       c,
       bc,
       hc,
-      className
+      className,
     },
     ref
   ) => {
@@ -102,7 +102,7 @@ const MobileList = forwardRef(
 MobileList.propTypes = {
   children: PropTypes.PropTypes.oneOfType([
     PropTypes.element,
-    PropTypes.arrayOf(PropTypes.element)
+    PropTypes.arrayOf(PropTypes.element),
   ]).isRequired,
   mobileMenuVisible: PropTypes.bool.isRequired,
   alwaysVisible: PropTypes.bool,
@@ -110,7 +110,7 @@ MobileList.propTypes = {
   c: PropTypes.string,
   bc: PropTypes.string,
   hc: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 MobileList.defaultProps = {
   hideMobile: null,
@@ -118,7 +118,7 @@ MobileList.defaultProps = {
   c: "#FFF",
   bc: "#1D1D1D",
   hc: "orangered",
-  className: null
+  className: null,
 };
 
 export default MobileList;

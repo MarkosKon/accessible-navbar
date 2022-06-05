@@ -41,7 +41,7 @@ const MobileListEmpty = forwardRef(
       c,
       bc,
       hc,
-      className
+      className,
     },
     ref
   ) => {
@@ -83,7 +83,7 @@ MobileListEmpty.propTypes = {
   c: PropTypes.string,
   bc: PropTypes.string,
   hc: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 MobileListEmpty.defaultProps = {
   hideMobile: null,
@@ -92,7 +92,7 @@ MobileListEmpty.defaultProps = {
   c: "#FFF",
   bc: "#1D1D1D",
   hc: "orangered",
-  className: null
+  className: null,
 };
 
 export default MobileListEmpty;
