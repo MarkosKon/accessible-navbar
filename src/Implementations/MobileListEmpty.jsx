@@ -1,4 +1,5 @@
-import React, { forwardRef } from "react";
+// @ts-check
+import * as React from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -31,7 +32,7 @@ const CloseButton = styled(Button)`
   top: 20px;
   right: 20px;
 `;
-const MobileListEmpty = forwardRef(
+const MobileListEmpty = React.forwardRef(
   (
     {
       hideMobile,

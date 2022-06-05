@@ -1,4 +1,5 @@
-import React, { Fragment, forwardRef } from "react";
+// @ts-check
+import * as React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -56,7 +57,7 @@ const ShowMobileMenuButton = styled(Button)`
     display: none;
   }
 `;
-const DesktopList = forwardRef(
+const DesktopList = React.forwardRef(
   (
     {
       showMobile,

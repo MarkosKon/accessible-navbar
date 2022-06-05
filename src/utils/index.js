@@ -1,3 +1,4 @@
+// @ts-check
 const scrollLock = () =>
   document.querySelector("html").classList.add("lock-scroll");
 const scrollUnlock = () =>

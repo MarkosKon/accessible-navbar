@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
+// @ts-check
+import * as React from "react";
 import PropTypes from "prop-types";
 
 import { useTopEffect } from "./hooks/useTopEffect";
@@ -18,23 +19,23 @@ const Navbar = ({
   bc,
   hc,
 }) => {
-  const [mobileMenuVisible, changeMobileMenuVisibility] = useState(false);
+  const [mobileMenuVisible, changeMobileMenuVisibility] = React.useState(false);
   const showMobile = () => changeMobileMenuVisibility(true);
   const hideMobile = () => changeMobileMenuVisibility(false);
 
   const [isAtTop, isAtTopRef] = useTopEffect(topEffect);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (mobileMenuVisible === true) {
       scrollLock();
       document
         .getElementById(applicationNodeId)
-        .setAttribute("aria-hidden", true);
+        .setAttribute("aria-hidden", "true");
     } else {
       const appNode = document.getElementById(applicationNodeId);
       if (appNode.getAttribute("aria-hidden") === "true") {
         scrollUnlock();
-        appNode.setAttribute("aria-hidden", false);
+        appNode.setAttribute("aria-hidden", "false");
       }
     }
   }, [applicationNodeId, mobileMenuVisible]);

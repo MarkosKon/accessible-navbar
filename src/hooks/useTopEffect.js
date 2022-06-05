@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+// @ts-check
+import * as React from "react";
 
 export const useTopEffect = (topEffect) => {
-  const [isAtTop, setIsAtTop] = useState(false);
-  const isAtTopRef = useRef(null);
-  const observer = useRef();
+  const [isAtTop, setIsAtTop] = React.useState(false);
+  const isAtTopRef = React.useRef(null);
+  const observer = React.useRef();
 
-  useEffect(() => {
+  React.useEffect(() => {
     const windowGlobal = typeof window !== "undefined" && window;
     if (topEffect && windowGlobal) {
       const handleScroll = (entries) => {

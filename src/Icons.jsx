@@ -1,9 +1,10 @@
+// @ts-check
 /*!
  * The svg icons are from Font Awesome:
  * Font Awesome Free 5.8.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
-import React from "react";
+import * as React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
