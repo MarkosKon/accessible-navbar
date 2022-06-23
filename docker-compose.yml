@@ -1,12 +1,13 @@
 version: "3.8"
 services:
   node:
-    image: node:16.14.0-alpine3.15
+    image: node:16.15.1-bullseye
     user: node:node
-    working_dir: /node/accessible-navbar
+    working_dir: /home/node/accessible-navbar
     volumes:
-      - ./:/node/accessible-navbar
-    # environment:
+      - ./:/home/node/accessible-navbar
+    environment:
+      - YARN_CACHE_FOLDER=/home/node/accessible-navbar/.cache/yarn
       # - INTERNAL_STATUS_PORT=33000
     ports:
       - 9000:9000

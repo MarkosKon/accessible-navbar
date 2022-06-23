@@ -5,3 +5,4 @@ analyze
 storybook-static
 .netlify
 netlify.toml
+.cache
